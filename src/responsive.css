@@ -1,0 +1,412 @@
+@media (max-width: 923px) {
+  html,
+  body {
+    font-weight: 300;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  * {
+    box-sizing: inherit;
+  }
+
+  .btnToggleRoulant {
+    display: flex;
+  }
+  .list_roulant {
+    display: block;
+    width: 45%;
+  }
+
+  .nav_list {
+    display: none;
+  }
+
+  .overview {
+    background: yellow;
+    height: 25rem;
+  }
+
+  .overview_content_1,
+  .overview_content_2,
+  .overview_content_3 {
+    height: 100%;
+    object-fit: cover;
+    background-size: 100%;
+    background-position: center;
+    height: 100%;
+  }
+
+  .content1 .slide-content_title1,
+  .content2 .slide-content_title2 {
+    font-size: 3rem;
+  }
+
+  .content3 .slide-content_title3 {
+    width: 70%;
+    font-size: 3rem;
+  }
+
+  .apercu {
+    width: 100%;
+    padding: 0;
+    display: block;
+  }
+
+  .apercu_div {
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .uou {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .uou_title {
+    font-size: 1.4rem;
+  }
+
+  .apercu_div_img {
+    height: 300px;
+  }
+
+  .apercu_content_description{
+    display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1em;
+  }
+
+  .achieve-dreams-section,
+  .flexible-programs,
+  .adapted-programs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: .5rem;
+    align-items: center;
+    height: auto;
+  }
+
+  .news_title {
+    font-size: 1.5rem;
+  }
+  .news_div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  }
+
+  .events_title {
+    font-size: 1.5rem;
+  }
+  .events_img_div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  }
+
+  .footer_content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    font-weight: 300;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  * {
+    box-sizing: inherit;
+  }
+
+  .btnToggleRoulant {
+    display: flex;
+  }
+  .list_roulant {
+    display: block;
+  }
+
+  .nav_list {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  html,
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .haeder_title_base {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .haeder_title {
+    font-size: 1.1rem;
+  }
+  .logo_uou {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .nav_items {
+    height: 3.5rem;
+    padding: 0 1rem 0 1rem;
+    width: 100%;
+  }
+
+  .btnToggleRoulant {
+    display: flex;
+  }
+  .list_roulant {
+    display: block;
+    width: 45%;
+  }
+
+  .nav_list {
+    display: none;
+  }
+
+  .list_roulant.fixed {
+    top: 3.4rem;
+  }
+
+  .list_roulant {
+    display: block;
+    width: 50%;
+    top: 7.4rem;
+  }
+
+  .overview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+  }
+  .swiper {
+    height: 100%;
+  }
+
+  .slide-content {
+    height: 80%;
+    margin: auto;
+    padding: 0.8rem;
+  }
+  .slide-content .slide-content_title1,
+  .slide-content .slide-content_title2,
+  .slide-content .slide-content_title3 {
+    width: 60%;
+    font-size: 1.7rem;
+    padding: 0.4rem;
+  }
+
+  .overview_description {
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    width: 99%;
+    height: 6rem;
+    background: rgb(255, 255, 255, 0.5);
+    border-radius: 1rem;
+    padding: 0.5rem;
+  }
+
+  .content_counter {
+    flex: 1;
+    font-size: 1rem;
+  }
+
+  #counters {
+    display: flex;
+    flex: 1;
+  }
+  .content_counter i,
+  #counters i {
+    font-size: 1rem;
+  }
+
+  .content_counter p {
+    font-size: 1rem;
+  }
+  #counters p {
+    font-size: 1.2rem;
+  }
+
+  .equation {
+    top: 3px;
+    right: 3px;
+  }
+
+  .equation_2 {
+    bottom: 3px;
+    left: 3px;
+  }
+
+  .overview_content_2 {
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-size: 100%;
+    background-position-y: center;
+  }
+
+  .overview_structure,
+  .overview_structure_2,
+  .overview_structure_3 {
+    background-image: cover;
+    background-size: cover;
+    background-position: center;
+  }
+  .apercu {
+    display: block;
+  }
+  .apercu_div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .uou {
+    flex-direction: column;
+  }
+  .apercu_div_description {
+    display: block;
+    background: blue;
+    width: 100%;
+  }
+
+  .uou {
+    width: 100%;
+  }
+
+  .uou h2 {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1rem;
+    text-overflow: ellipsis; /* ajoute "..." si le texte est trop long */
+  }
+
+  .apercu_content_description {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container_counter {
+    display: none;
+  }
+
+  .news_div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .events_img_div {
+    display: block;
+    gap: 1rem;
+  }
+
+  .domaine_description_domaine{
+    flex-direction: column;
+    display: flex;
+  }
+
+  .domaine_uou_description {
+    display: flex;
+    font-size: 1.4rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+  }
+
+  .description_faculty.fullscreen {
+    flex-direction: column;
+  }
+  .description_faculty.fullscreen img {
+    width: 100%;
+  }
+
+  .btn-retour {
+    transform: translateX(100%);
+  }
+
+  .content_team_faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+  }
+  .faq {
+    width: 100%;
+  }
+  .faq_title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .team_container_div {
+    width: 100%;
+    padding: 0 0.4rem 0 0.4rem;
+    background: yellow;
+    overflow-x: hidden;
+  }
+  .team_container {
+    width: 90%;
+    height: 7rem;
+
+    height: 100%;
+  }
+  .team_member {
+    height: 100%;
+  }
+
+  .contactez_nous {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+  }
+  .contactez_nous_title {
+    margin-bottom: 0.6rem;
+    font-size: 1.5rem;
+  }
+
+  .contact_intro {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+    margin-bottom: 1.3rem;
+    align-items: center;
+    padding: 0.3rem;
+  }
+
+  .contactez_nous form {
+    width: 100%;
+  }
+
+  .contactez_nous button {
+    width: 4rem;
+    padding: 0.6rem;
+  }
+
+  .footer_content {
+    padding: 1rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
