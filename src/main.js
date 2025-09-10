@@ -16,7 +16,7 @@ const body = document.querySelector("body");
 toggleButton.addEventListener("click", (e) => {
   e.stopPropagation();
   navMenuRoulant.classList.toggle("active");
-  toggleButton.classList.toggle("active"); 
+  toggleButton.classList.toggle("active");
 });
 
 const subLinks = document.querySelectorAll(".link_roulant");
@@ -51,17 +51,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const contentVisiteurs = document.querySelector('.content_counter');
-  contentVisiteurs.innerText = 'Plus de 400 visiteurs '; 
+  contentVisiteurs.innerText = 'Plus de 400 visiteurs ';
 
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         showText();
-        observer.unobserve(entry.target); 
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 }); 
+  }, { threshold: 0.5 });
   observer.observe(contentVisiteurs);
 
 
@@ -269,3 +269,21 @@ document.querySelectorAll('.faq_question').forEach(button => {
 });
 
 
+
+document.head.classList.add('welcome')
+
+const loader = document.createElement("div");
+loader.id = "loader";
+loader.textContent = " Bienvenue sur le site officiel de UOU";
+document.body.appendChild(loader);
+
+const content = document.createElement("div");
+content.id = "content";
+document.body.appendChild(content);
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    loader.remove();
+    // content.style.display = "block";
+  }, 3000);
+});
