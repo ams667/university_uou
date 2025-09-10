@@ -267,23 +267,3 @@ document.querySelectorAll('.faq_question').forEach(button => {
   });
 
 });
-
-
-
-document.head.classList.add('welcome')
-
-const loader = document.createElement("div");
-loader.id = "loader";
-loader.textContent = " Bienvenue sur le site officiel de UOU";
-document.body.appendChild(loader);
-
-const content = document.createElement("div");
-content.id = "content";
-document.body.appendChild(content);
-
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    loader.remove();
-    // content.style.display = "block";
-  }, 3000);
-});
