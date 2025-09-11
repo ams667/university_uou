@@ -76,7 +76,7 @@ input {
   padding: 0 2rem 0 2rem;
   z-index: var(--z-2-2-2);
   height: 100%;
-  height: 3.5rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   color: white;
@@ -118,11 +118,11 @@ input {
 }
 
 .nav_items {
-  height: 4rem;
+  height: 3.5rem;
   position: relative;
   background: #002147;
   color: white;
-  padding: 0 0.6rem 0 0.6rem;
+  padding: 0 .6rem 0 .6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -200,7 +200,7 @@ input {
   transition: right 1s ease;
   height: 25rem;
   width: 20rem;
-  top: 7.5rem;
+  top: 6.5rem;
   right: -23rem;
   transition: 1s all;
   background: #184e8b;
@@ -208,7 +208,7 @@ input {
 .list_roulant.fixed {
   position: fixed;
   display: flex;
-  top: 4rem;
+  top: 3.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 .list_roulant.active {
@@ -1386,28 +1386,70 @@ input {
 }
 
 
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-  }
-  #loader {
-    position: fixed;
+/* Wrapper loader centré sur toute la page */
+.body_container_loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); /* fond semi-transparent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+/* Loader container unique */
+.uou-loader-container {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+/* Carrés animés */
+.uou-loader-square {
+  width: 25px;
+  height: 25px;
+  background-color: #007bff;
+  position: absolute;
+  /* top: 0;
+  left: 0; */
+  border-radius: 5px;
+}
+
+/* Contenu principal caché */
+.uou-loader-content {
+  display: none;
+  opacity: 0;
+  text-align: center;
+  padding: 2rem;
+  animation: uou-fadeInContent 0.8s forwards;
+  font-family: sans-serif;
+}
+
+@keyframes uou-fadeInContent {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Ajustement pour écrans plus petits */
+@media (max-width: 480px) {
+  .body_container_loader {
+    width: 100vw;      /* largeur écran */
+    height: 100vh;     /* hauteur écran */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    transform: none;   /* on ne translate plus, car top/left = 0 */
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: white;
-    font-size: 22px;
-    font-weight: bold;
-    color: #333;
-    z-index: 9999;
+    align-items: center;
+    background-color: rgba(0,0,0,0.1); /* optionnel: léger fond */
   }
-  #content {
-    display: none;
-    padding: 20px;
+
+  .uou-loader-container {
+    width: 80px;       /* taille du carré contenant les petits carrés */
+    height: 80px;
   }
+}

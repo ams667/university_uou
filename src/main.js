@@ -133,25 +133,28 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  const navbar = document.querySelector(".nav_items");
-  const navMenuRoulant = document.querySelector(".list_roulant");
-  const sticky = navbar.offsetTop;
-  const stamisi = navMenuRoulant.offsetTop;
+const navbar = document.querySelector(".nav_items");
+const navMenuRoulant = document.querySelector(".list_roulant");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY >= sticky) {
-      navbar.classList.add("fixed");
-    } else {
-      navbar.classList.remove("fixed");
-    }
-  });
-  window.addEventListener("scroll", () => {
-    if (window.scrollY >= sticky) {
-      navMenuRoulant.classList.add("fixed");
-    } else {
-      navMenuRoulant.classList.remove("fixed");
-    }
-  });
+const stickyNavbar = navbar.offsetTop;
+const stickyMenu = navMenuRoulant.offsetTop;
+
+window.addEventListener("scroll", () => {
+  // Navbar
+  if (window.scrollY >= stickyNavbar) {
+    navbar.classList.add("fixed");
+  } else {
+    navbar.classList.remove("fixed");
+  }
+
+  // Menu roulant
+  if (window.scrollY >= stickyMenu) {
+    navMenuRoulant.classList.add("fixed");
+  } else {
+    navMenuRoulant.classList.remove("fixed");
+  }
+});
+
 
   const contactForm = document.getElementById("contactForm");
   const messageInput = document.getElementById("message");
@@ -266,4 +269,59 @@ document.querySelectorAll('.faq_question').forEach(button => {
     answer.classList.toggle('active');
   });
 
+});
+// --- Création du wrapper du loader ---
+const bodyContainerLoader = document.createElement('div');
+bodyContainerLoader.className = 'body_container_loader';
+document.body.appendChild(bodyContainerLoader);
+
+// --- Création du loader ---
+const loaderContainer = document.createElement("div");
+loaderContainer.className = "uou-loader-container";
+bodyContainerLoader.appendChild(loaderContainer);
+
+// Création des carrés
+const squares = [];
+for (let i = 0; i < 3; i++) {
+  const square = document.createElement("div");
+  square.className = "uou-loader-square";
+  loaderContainer.appendChild(square);
+  squares.push(square);
+}
+
+// --- Positions des carrés (avec right) ---
+const positions = [
+  { top: 0, right: 0 },
+  { top: 0, right: 30 },
+  { top: 30, right: 30 },
+  { top: 30, right: 0 },
+];
+
+// --- Animation des carrés ---
+let index = 0;
+const intervalId = setInterval(() => {
+  squares.forEach((square, i) => {
+    const posIndex = (index - i + positions.length) % positions.length;
+    square.style.top = positions[posIndex].top + "px";
+    square.style.right = positions[posIndex].right + "px"; // utilise right
+  });
+  index = (index + 1) % positions.length;
+}, 300);
+
+// --- Création du contenu principal ---
+const content = document.createElement("div");
+content.className = "uou-loader-content";
+content.innerHTML = `
+  <h1>Bienvenue sur le site officiel de l'UOU</h1>
+  <p>Découvrez nos programmes, actualités et événements !</p>
+`;
+document.body.appendChild(content);
+
+// --- Supprimer le loader et afficher le contenu après 4 secondes ---
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    clearInterval(intervalId); // stop animation
+    bodyContainerLoader.remove(); // supprime tout le wrapper du loader
+    content.style.display = "block";
+  }, 4000);
 });

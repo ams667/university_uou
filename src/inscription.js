@@ -1,3 +1,6 @@
+import './inscription.css';
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("registerForm");
   const submitBtn = document.getElementById("submitBtn");
@@ -5,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function validateField(field, errorElement, validationFn) {
     const isValid = validationFn(field.value.trim());
+
     if (!isValid) {
       field.classList.add("input-error");
       errorElement.style.display = "block";
@@ -12,14 +16,15 @@ document.addEventListener("DOMContentLoaded", function () {
       field.classList.remove("input-error");
       errorElement.style.display = "none";
     }
+
     return isValid;
   }
 
   const validators = {
-    text: (v) => /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(v),
-    email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
-    phone: (v) => /^[\+]?[0-9\s\-\(\)]{8,}$/.test(v),
-    domaines: (v) => /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(v),
+    text: (value) => /^[A-za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(value),
+    email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+    phone: (value) => /^[\+]?[0-9\s\-\(\)]{8,}$/.test(value),
+    domaines: (value) =>  /^[A-za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(value), 
     radio: () => document.querySelector('input[name="sexe"]:checked') !== null,
   };
 
@@ -28,22 +33,35 @@ document.addEventListener("DOMContentLoaded", function () {
     { id: "lastName", type: "text" },
     { id: "email", type: "email" },
     { id: "phone", type: "phone" },
-    { id: "domaines", type: "domaines" },
-  ];
+  { id: "domaines", type: "domaines" }, 
+];
+
+const domaineField = document.getElementById("domaines");
+const domaineError = document.getElementById("domainesError"); 
+
+domaineField.addEventListener("change", () => {
+  validateField(domaineField, domaineError, validators.domaines);
+});
 
   fields.forEach(({ id, type }) => {
     const field = document.getElementById(id);
     const errorElement = document.getElementById(id + "Error");
 
-    field.addEventListener("blur", () => validateField(field, errorElement, validators[type]));
+    field.addEventListener("blur", () => {
+      validateField(field, errorElement, validators[type]);
+    });
+
     field.addEventListener("input", () => {
-      if (field.classList.contains("input-error")) validateField(field, errorElement, validators[type]);
+      if (field.classList.contains("input-error")) {
+        validateField(field, errorElement, validators[type]);
+      }
     });
   });
 
   document.querySelectorAll('input[name="sexe"]').forEach((radio) => {
     radio.addEventListener("change", () => {
-      document.getElementById("sexeError").style.display = "none";
+      const errorElement = document.getElementById("sexeError");
+      errorElement.style.display = "none";
     });
   });
 
@@ -51,62 +69,60 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
 
     let isFormValid = true;
+
     fields.forEach(({ id, type }) => {
       const field = document.getElementById(id);
       const errorElement = document.getElementById(id + "Error");
-      if (!validateField(field, errorElement, validators[type])) isFormValid = false;
+      const isValid = validateField(field, errorElement, validators[type]);
+      if (!isValid) isFormValid = false;
     });
 
     const sexeError = document.getElementById("sexeError");
-    if (!validators.radio()) {
+    const isSexeValid = validators.radio();
+    if (!isSexeValid) {
       sexeError.style.display = "block";
       isFormValid = false;
     } else {
       sexeError.style.display = "none";
     }
 
-    if (!isFormValid) return;
+    if (isFormValid) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="ri-loader-line"></i> Envoi en cours...';
 
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="ri-loader-line"></i> Envoi en cours...';
+      const formData = new FormData(form);
 
-    // Vérifie que form.action est défini
-    const action = form.getAttribute("action");
-    if (!action) {
-      console.error("Le formulaire n'a pas d'attribut action !");
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = '<i class="ri-send-plane-line"></i> S\'inscrire';
-      return;
-    }
-
-    const formData = new FormData(form);
-
-    fetch(action, {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        if (response.ok) {
-          successMessage.style.display = "block";
-          form.reset();
-          successMessage.scrollIntoView({ behavior: "smooth" });
-        } else {
-          throw new Error("Erreur de réseau ou endpoint invalide");
-        }
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
       })
-      .catch((err) => console.error(err))
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="ri-send-plane-line"></i> S\'inscrire';
-      });
+        .then((response) => {
+          if (response.ok) {
+            successMessage.style.display = "block";
+            form.reset();
+
+            successMessage.scrollIntoView({ behavior: "smooth" });
+          } else {
+            throw new Error("Erreur de réseau");
+          }
+        })
+        .catch((error) => {
+          console.error("Erreur:", error);
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML =
+            '<i class="ri-send-plane-line"></i> S\'inscrire';
+        });
+    }
   });
 
-  // Animation description
   setTimeout(() => {
-    const desc = document.querySelector(".inscription_description");
-    if (desc) {
-      desc.style.opacity = "1";
-      desc.style.transform = "translateY(-60px)";
-    }
+    document.querySelector(".inscription_description").style.opacity = "1";
+    document.querySelector(".inscription_description").style.transform =
+      "translateY(-60px)";
   }, 500);
 });
