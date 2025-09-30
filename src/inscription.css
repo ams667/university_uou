@@ -2,7 +2,7 @@
 
 :root {
   /* Couleurs */
-  --body-background:#f1eeeb;
+  --body-background: #f1eeeb;
   --body-background-cacrds: #e3d5ca;
   --white-color: #fff;
   --black-color: #000;
@@ -95,32 +95,30 @@ li {
   list-style: none;
 }
 
-.inscription_title{
+.inscription_title {
   font-size: var(--font-size-xxl);
   font-weight: var(--font-weight-semi-bold);
   margin-bottom: var(--space-xxl);
 }
-
 
 .inscription_description {
   display: flex;
   justify-content: space-between;
   align-items: start;
   gap: var(--space-xl);
-  padding: var(--space-xxxl) ;
+  padding: var(--space-xxxl);
   opacity: 0;
-  transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .inscription_description.loaded {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(-40px);
 }
 
 .description {
   display: flex;
-  flex-direction: column ;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex: 1;
@@ -139,7 +137,7 @@ li {
   gap: 1rem;
 }
 
-.condition-section_title{
+.condition-section_title {
   display: flex;
   justify-content: start;
   width: 100%;
@@ -147,7 +145,7 @@ li {
   margin-bottom: var(--space-xxxl);
 }
 
-.condition-card{
+.condition-card {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -157,25 +155,23 @@ li {
   gap: 1rem;
 }
 
-.condition-section_inscription{
+.condition-section_inscription {
   display: flex;
 }
 
-.section_inscription_title{
+.section_inscription_title {
   display: flex;
   justify-content: start;
   width: 100%;
   gap: 1rem;
   margin-bottom: var(--space-xxxl);
 }
-.section_inscription{
+.section_inscription {
   display: flex;
-
   flex: 1;
   gap: 1rem;
-  
 }
-.condition-card_inscription{
+.condition-card_inscription {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -183,7 +179,7 @@ li {
   margin-bottom: 2rem;
 }
 
-.condition-card{
+.condition-card {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -193,7 +189,7 @@ li {
   gap: 1rem;
 }
 
-.admission_title{
+.admission_title {
   display: flex;
   justify-content: start;
   width: 100%;
@@ -201,7 +197,6 @@ li {
   margin-bottom: var(--space-xxxl);
 }
 
-/* Formulaires */
 .form-container {
   flex: 1;
   width: 100%;
@@ -258,11 +253,6 @@ input:focus {
   border-color: var(--error-color) !important;
 }
 
-
-
-
-
-
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -284,17 +274,16 @@ input:focus {
   transition: color 0.3s ease;
 }
 
-.domaines{
+.domaines {
   width: 100%;
   display: inline-block;
-  padding: .8rem;
-  border-radius: .6rem;
+  padding: 0.8rem;
+  border-radius: 0.6rem;
 }
 
-.domaines:checked{
+.domaines:checked {
   background: red;
 }
-
 
 .checkbox_sex input[type="radio"] {
   appearance: none;
@@ -355,7 +344,8 @@ button {
 }
 
 button:hover {
-  background-color: var(--button-hover);
+  background: rgb(0, 65, 130, 0.9);
+  color: yellow;
 }
 
 button:disabled {
@@ -363,7 +353,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Messages */
 .msg_error {
   color: var(--error-color);
   display: none;
@@ -375,8 +364,7 @@ button:disabled {
 }
 
 .cycle-info {
-  /* background: var(--body-background-cacrds); */
-  background: rgb(253, 253 , 253, 0.5);
+  background: rgb(253, 253, 253, 0.5);
   padding: var(--space-md);
   border-radius: 15px;
   margin-bottom: var(--mb-2);
@@ -384,7 +372,7 @@ button:disabled {
 }
 
 .cycle-info h3 {
-  margin-top:  var(--space-md);
+  margin-top: var(--space-md);
   color: var(--button-color);
   margin-bottom: var(--space-xxxl);
   text-align: center;
@@ -427,8 +415,8 @@ button:disabled {
   cursor: pointer;
 }
 
-.step-number:hover{
-  background: rgb(0, 74, 148, 0.5);
+.step-number:hover {
+  background: rgb(0, 74, 148, 0.9);
   color: #000;
 }
 
@@ -443,8 +431,21 @@ button:disabled {
   font-size: 0.9rem;
 }
 
+.footer_com {
+  background: #002147;
+  color: var(--white-color);
+  outline: #000;
+  padding: 0.6rem;
+  /* display: inline-block; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  font-size: 1rem;
+  width: 100%;
+  text-overflow: ellipsis;
+}
 
-/* Responsive */
 @media (max-width: 940px) {
   .inscription_description {
     display: flex;
@@ -460,16 +461,14 @@ button:disabled {
     max-width: 100%;
   }
 
-  #registerForm{
+  #registerForm {
     width: 80%;
     margin: auto;
   }
 }
 
-
 @media (max-width: 480px) {
-
-  .inscription_title{
+  .inscription_title {
     display: flex;
     font-size: var(--font-size-md);
     justify-content: center;
@@ -485,11 +484,11 @@ button:disabled {
     align-items: center;
     width: 100%;
   }
-  .description{
+  .description {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    width: 100%; 
+    align-items: center;
+    width: 100%;
   }
 
   .description h2 {
@@ -508,7 +507,7 @@ button:disabled {
 
   .condition-section_title,
   .section_inscription_title,
-  .admission_title{
+  .admission_title {
     display: flex;
     justify-content: start;
     width: 100%;
@@ -516,7 +515,7 @@ button:disabled {
     margin-bottom: var(--space-lg);
   }
   .condition-section,
-  .section_inscription{
+  .section_inscription {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
@@ -524,26 +523,29 @@ button:disabled {
     align-items: center;
     padding: 1rem;
   }
-  .cycle-info{
+  .cycle-info {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
 
-  .cycle-steps{
+  .cycle-steps {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+  .footer_com{
+    font-size: 1rem;
+  }
 
-  #registerForm{
+  #registerForm {
     margin: auto;
     width: 95%;
     margin-bottom: 2rem;
     padding: 1rem;
   }
 
-  input{
+  input {
     width: 100%;
   }
 }

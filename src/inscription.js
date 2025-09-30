@@ -1,6 +1,5 @@
 import './inscription.css';
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("registerForm");
   const submitBtn = document.getElementById("submitBtn");
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     text: (value) => /^[A-za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(value),
     email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
     phone: (value) => /^[\+]?[0-9\s\-\(\)]{8,}$/.test(value),
-    domaines: (value) =>  /^[A-za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(value), 
+    domaines: (value) => /^[A-za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(value),
     radio: () => document.querySelector('input[name="sexe"]:checked') !== null,
   };
 
@@ -33,15 +32,15 @@ document.addEventListener("DOMContentLoaded", function () {
     { id: "lastName", type: "text" },
     { id: "email", type: "email" },
     { id: "phone", type: "phone" },
-  { id: "domaines", type: "domaines" }, 
-];
+    { id: "domaines", type: "domaines" },
+  ];
 
-const domaineField = document.getElementById("domaines");
-const domaineError = document.getElementById("domainesError"); 
+  const domaineField = document.getElementById("domaines");
+  const domaineError = document.getElementById("domainesError");
 
-domaineField.addEventListener("change", () => {
-  validateField(domaineField, domaineError, validators.domaines);
-});
+  domaineField.addEventListener("change", () => {
+    validateField(domaineField, domaineError, validators.domaines);
+  });
 
   fields.forEach(({ id, type }) => {
     const field = document.getElementById(id);
@@ -95,9 +94,8 @@ domaineField.addEventListener("change", () => {
       fetch(form.action, {
         method: "POST",
         body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        headers: { Accept: "application/json" },
+        mode: "cors",
       })
         .then((response) => {
           if (response.ok) {
@@ -123,6 +121,6 @@ domaineField.addEventListener("change", () => {
   setTimeout(() => {
     document.querySelector(".inscription_description").style.opacity = "1";
     document.querySelector(".inscription_description").style.transform =
-      "translateY(-60px)";
+      "translateY(-40px)";
   }, 500);
 });

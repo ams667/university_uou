@@ -36,6 +36,7 @@ body.addEventListener("click", () => {
 
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const texts = Array.from({ length: 300 }, (_, i) => (i + 1).toString());
   const delay = 10;
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const contentVisiteurs = document.querySelector('.content_counter');
+  const contentVisiteurs = document.querySelector('#content_counter');
   contentVisiteurs.innerText = 'Plus de 400 visiteurs ';
 
 
@@ -220,8 +221,7 @@ window.addEventListener("scroll", () => {
     origin: 'bottom'
   });
 
-  sr.reveal('.faq', { delay: 400, origin: 'left' });
-  sr.reveal('.team_container_div', { delay: 400, origin: 'right' });
+  sr.reveal('.faq', { delay: 400,distance:'100px', origin: 'left' });
 
 });
 
@@ -270,17 +270,20 @@ document.querySelectorAll('.faq_question').forEach(button => {
   });
 
 });
-// --- Création du wrapper du loader ---
+
+
+
+
+
 const bodyContainerLoader = document.createElement('div');
 bodyContainerLoader.className = 'body_container_loader';
 document.body.appendChild(bodyContainerLoader);
 
-// --- Création du loader ---
+
 const loaderContainer = document.createElement("div");
 loaderContainer.className = "uou-loader-container";
 bodyContainerLoader.appendChild(loaderContainer);
 
-// Création des carrés
 const squares = [];
 for (let i = 0; i < 3; i++) {
   const square = document.createElement("div");
@@ -289,7 +292,6 @@ for (let i = 0; i < 3; i++) {
   squares.push(square);
 }
 
-// --- Positions des carrés (avec right) ---
 const positions = [
   { top: 0, right: 0 },
   { top: 0, right: 30 },
@@ -297,31 +299,19 @@ const positions = [
   { top: 30, right: 0 },
 ];
 
-// --- Animation des carrés ---
 let index = 0;
 const intervalId = setInterval(() => {
   squares.forEach((square, i) => {
     const posIndex = (index - i + positions.length) % positions.length;
     square.style.top = positions[posIndex].top + "px";
-    square.style.right = positions[posIndex].right + "px"; // utilise right
+    square.style.right = positions[posIndex].right + "px"; 
   });
   index = (index + 1) % positions.length;
-}, 300);
+}, 800);
 
-// --- Création du contenu principal ---
-const content = document.createElement("div");
-content.className = "uou-loader-content";
-content.innerHTML = `
-  <h1>Bienvenue sur le site officiel de l'UOU</h1>
-  <p>Découvrez nos programmes, actualités et événements !</p>
-`;
-document.body.appendChild(content);
-
-// --- Supprimer le loader et afficher le contenu après 4 secondes ---
 window.addEventListener("load", () => {
   setTimeout(() => {
-    clearInterval(intervalId); // stop animation
-    bodyContainerLoader.remove(); // supprime tout le wrapper du loader
-    content.style.display = "block";
-  }, 4000);
+    clearInterval(intervalId); 
+    bodyContainerLoader.remove();
+  }, 5000);
 });
