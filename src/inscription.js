@@ -1,4 +1,4 @@
-import './inscription.css';
+// import './inscription.css';
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("registerForm");
