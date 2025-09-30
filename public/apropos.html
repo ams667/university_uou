@@ -11,6 +11,163 @@
       rel="stylesheet"
     />
     <title>Université Officielle d’Uvira (UOU)</title>
+
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  /* Couleurs */
+  --body-background: #e3d5ca;
+  --body-background-cacrds: #f6e2d2;
+  --white-color: #fff;
+  --black-color: #000;
+  --black-color2: #514646;
+  --color-title: #e3d5ca;
+  --button-color: #0066cc;
+  --button-hover: #5891ca;
+  --cards-color: rgba(255, 255, 255, 0.7);
+  --error-color: #d32f2f;
+  --text-color: #333;
+  --border-color: #ccc;
+
+  /* Transparences */
+  --black-color-content: rgba(0, 0, 0, 0.9);
+  --background-header: rgba(0, 0, 0, 0.7);
+
+  /* Typographie */
+  --font-family: "Poppins", sans-serif;
+  --font-alumni: "Alumni Sans Pinstripe", sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+
+  /* Tailles de police (mobile first) */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2.25rem;
+  --font-size-xxl: 2.5rem;
+  --font-size-xxxl: 3.5rem;
+  --font-size-giant: 5rem;
+
+  /* Espacements */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 2.5rem;
+  --space-xxxl: 3rem;
+
+  /* Bordures */
+  --border-radius-sm: 0.4rem;
+  --border-radius-md: 0.8rem;
+  --border-radius-lg: 1rem;
+
+  /* Z-index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* Media queries pour les grands écrans */
+@media screen and (min-width: 968px) {
+  :root {
+    --font-size-xs: 0.813rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-md: 1.25rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 2.25rem;
+    --font-size-xxl: 2.5rem;
+    --font-size-xxxl: 4.5rem;
+    --font-size-giant: 10.5rem;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background: var(--body-background);
+  color: var(--text-color);
+}
+
+.uou-section {
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.intro {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.reasons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reasons-list li {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.reasons-list .icon {
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+}
+
+.reasons-list strong {
+  display: block;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.slogan {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .intro,
+  .slogan {
+    font-size: 1rem;
+  }
+}
+
+    </style>
   </head>
 
   <body>
@@ -83,6 +240,6 @@
         </p>
       </div>
     </section>
-    <script type="module" src="../src/apropos.js"></script>
+    <!-- <script type="module" src="../src/apropos.js"></script> -->
   </body>
 </html>
