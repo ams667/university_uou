@@ -8,7 +8,6 @@ import 'swiper/css/pagination';
 import ScrollReveal from 'scrollreveal';
 
 
-
 const toggleButton = document.getElementById("btnToggleRoulant");
 const navMenuRoulant = document.getElementById("navBarRoulant");
 const body = document.querySelector("body");
@@ -32,11 +31,6 @@ body.addEventListener("click", () => {
   toggleButton.classList.remove("active");
 });
 
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const texts = Array.from({ length: 300 }, (_, i) => (i + 1).toString());
   const delay = 10;
@@ -54,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const contentVisiteurs = document.querySelector('#content_counter');
   contentVisiteurs.innerText = 'Plus de 400 visiteurs ';
 
-
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -64,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.5 });
   observer.observe(contentVisiteurs);
-
 
   const swiper1 = new Swiper('.mySwiper', {
     modules: [Navigation, Pagination, Autoplay],
@@ -92,10 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
   animateTitle();
 
   swiper1.on('slideChangeTransitionEnd', animateTitle);
-
-
-
-
 
   const swiper2 = new Swiper('.slider-wrapper', {
 
@@ -156,7 +144,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-
   const contactForm = document.getElementById("contactForm");
   const messageInput = document.getElementById("message");
 
@@ -186,10 +173,10 @@ window.addEventListener("scroll", () => {
         alert(" Une erreur est survenue.");
       }
     } catch (error) {
+      console.log("Erreur réseau. Réessayez.");
       alert("Erreur réseau. Réessayez.");
     }
   });
-
 
   const sr = ScrollReveal({
     distance: '60px',
@@ -197,7 +184,8 @@ window.addEventListener("scroll", () => {
     delay: 100,
   });
 
-  sr.reveal(' .uou_title, .uou_description', { delay: 200, origin: 'top' });
+  sr.reveal(' .uou_title', { delay: 200, origin: 'right' });
+  sr.reveal(' .uou_description', { delay: 400, origin: 'right' });
 
   sr.reveal('.flexible-programs, .adapted-programs, .achieve-dreams-section', {
     interval: 100,
@@ -225,8 +213,6 @@ window.addEventListener("scroll", () => {
 
 });
 
-
-// ___________________________________ TOGGLE BLOCS DOMAINES ___________________________________
 const toggleButtons = document.querySelectorAll(".btn-toggle");
 const retourButtons = document.querySelectorAll(".btn-retour");
 
@@ -271,14 +257,9 @@ document.querySelectorAll('.faq_question').forEach(button => {
 
 });
 
-
-
-
-
 const bodyContainerLoader = document.createElement('div');
 bodyContainerLoader.className = 'body_container_loader';
 document.body.appendChild(bodyContainerLoader);
-
 
 const loaderContainer = document.createElement("div");
 loaderContainer.className = "uou-loader-container";

@@ -62,7 +62,6 @@
   .list_roulant.active {
     right: 0;
   }
-
   .overview {
     display: flex;
     align-items: center;
@@ -85,14 +84,12 @@
     font-size: 1.7rem;
     padding: 0.4rem;
   }
-
   .overview_content_2 {
     background-repeat: no-repeat;
     object-fit: cover;
     background-size: 100%;
     background-position-y: center;
   }
-
   .overview_structure,
   .overview_structure_2,
   .overview_structure_3 {
@@ -101,13 +98,14 @@
     background-position: center;
   }
   .apercu {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
   .apercu_div {
     display: flex;
     flex-direction: column;
   }
-
   .uou {
     flex-direction: column;
   }
@@ -116,11 +114,9 @@
     background: blue;
     width: 100%;
   }
-
   .uou {
     width: 100%;
   }
-
   .uou h2 {
     display: flex;
     width: 100%;

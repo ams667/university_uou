@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ams667.github.io/university_uou/sitemap.xml

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://ams667.github.io/university_uou/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- À propos -->
+  <url>
+    <loc>https://ams667.github.io/university_uou/apropos.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Inscription -->
+  <url>
+    <loc>https://ams667.github.io/university_uou/inscription.html</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
